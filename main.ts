@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM is loaded");
     const inputField = document.getElementById('inputField') as HTMLInputElement;
     const submitButton = document.getElementById('submitButton') as HTMLButtonElement;
     const outputField = document.getElementById('outputField') as HTMLParagraphElement;
