@@ -10,13 +10,13 @@
 <body><input type="text" id="inputField" placeholder="Enter something..." /><button id="submitButton">Submit</button>
     <p id="outputField"></p>
     <script>
-        // Adjust the script source dynamically based on the environment
-        const script = document.createElement('script');
-        if (window.location.hostname === 'localhost') {
-            script.src = 'dist/main.js';
-        } else {
-            script.src = 'main.js';
-        }
+        var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        var scriptPath = isLocal ? 'dist/main.js' : 'main.js';
+
+        var script = document.createElement('script');
+        script.src = scriptPath;
+        script.defer = true;  // Ensure script executes after DOM is ready
+
         document.body.appendChild(script);
     </script>
 </body>
