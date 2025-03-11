@@ -28,17 +28,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build the project (ensure dist/ folder contains index.html and dist/main.js)
+      # Step 4: Build the project (ensure dist/ folder contains main.js)
       - name: Build project
         run: npm run build  # Ensure this creates index.html and dist/main.js
 
-      # Step 5: Copy index.html to root and deploy dist/ folder to gh-pages
+      # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         run: |
           # Copy index.html to the root of the gh-pages branch
-          cp dist/index.html .
-          
-          # Deploy to GitHub Pages using the deploy action
+          cp index.html .  # Copy the index.html from the root to the current directory
+
+          # Deploy the content of the dist/ folder (which includes main.js) to gh-pages
           npx gh-pages -d dist --branch gh-pages --dotfiles
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
