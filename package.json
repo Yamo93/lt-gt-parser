@@ -4,9 +4,10 @@
   "main": "index.js",
   "homepage": "https://Yamo93.github.io/lt-gt-parser",
   "scripts": {
-    "watch": "npx tsc --watch",
-    "predeploy": "tsc",
-    "deploy": "gh-pages -d ."
+    "build": "tsc",
+    "prepare": "cp index.html dist/index.html",
+    "predeploy": "npm run build && npm run prepare",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
