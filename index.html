@@ -9,16 +9,7 @@
 
 <body><input type="text" id="inputField" placeholder="Enter something..." /><button id="submitButton">Submit</button>
     <p id="outputField"></p>
-    <script>
-        // Adjust the script source dynamically based on the environment
-        const script = document.createElement('script');
-        if (window.location.hostname === 'localhost') {
-            script.src = 'dist/main.js';
-        } else {
-            script.src = 'main.js';
-        }
-        document.body.appendChild(script);
-    </script>
+    <script src="dist/main.js"></script>
 </body>
 
 </html>
