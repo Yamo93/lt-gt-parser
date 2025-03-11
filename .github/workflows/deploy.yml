@@ -4,37 +4,41 @@ on:
   push:
     branches:
       - main  # Trigger deployment when changes are pushed to the main branch
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Use Ubuntu for the deployment
+    runs-on: ubuntu-latest  # Use Ubuntu for deployment
 
     permissions:
       contents: write  # Ensure the token has write access to repository contents
 
     steps:
-      # Checkout the repository
+      # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Node.js (use the version that matches your project)
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'  # Replace with your Node.js version if needed
 
-      # Install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Build the project (you can also run tests if needed)
+      # Step 4: Build the project (ensure dist/ folder contains index.html and dist/main.js)
       - name: Build project
-        run: npm run build
+        run: npm run build  # Ensure this creates index.html and dist/main.js
 
-      # Deploy to GitHub Pages
+      # Step 5: Copy index.html to root and deploy dist/ folder to gh-pages
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages  # Target the `gh-pages` branch
-          folder: dist      # Folder to deploy from (this should contain `index.html`)
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub automatically provides this token
+        run: |
+          # Copy index.html to the root of the gh-pages branch
+          cp dist/index.html .
+          
+          # Deploy to GitHub Pages using the deploy action
+          npx gh-pages -d dist --branch gh-pages --dotfiles
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
