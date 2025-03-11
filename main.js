@@ -1,5 +1,6 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM is loaded");
     var inputField = document.getElementById('inputField');
     var submitButton = document.getElementById('submitButton');
     var outputField = document.getElementById('outputField');
