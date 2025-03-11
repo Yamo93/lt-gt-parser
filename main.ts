@@ -1,3 +1,5 @@
+console.log("loading app");
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is loaded");
     const inputField = document.getElementById('inputField') as HTMLInputElement;
