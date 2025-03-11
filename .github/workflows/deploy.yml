@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest  # Use Ubuntu for the deployment
 
+    permissions:
+      contents: write  # Ensure the token has write access to repository contents
+
     steps:
       # Checkout the repository
       - name: Checkout code
