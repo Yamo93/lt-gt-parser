@@ -1,5 +1,5 @@
 # Lt Gt Parser
-This is a simple TS app that takes a string as input, parses it and returns a parsed output.
+This is a simple TS app that takes a string as input, parses it and returns an output.
 
 # Usage
 1. Clone the repo.
