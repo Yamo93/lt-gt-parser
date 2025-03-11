@@ -30,3 +30,8 @@ jobs:
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.1.2
+        with:
+          branch: gh-pages  # Target the `gh-pages` branch
+          folder: dist      # Folder to deploy from (this should contain `index.html`)
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub automatically provides this token
