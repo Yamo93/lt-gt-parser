@@ -1,4 +1,5 @@
 "use strict";
+console.log("loading app");
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM is loaded");
     var inputField = document.getElementById('inputField');
