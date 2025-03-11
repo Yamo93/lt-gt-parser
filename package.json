@@ -5,9 +5,7 @@
   "homepage": "https://Yamo93.github.io/lt-gt-parser",
   "scripts": {
     "build": "tsc",
-    "prepare": "cp index.html dist/index.html",
-    "predeploy": "npm run build && npm run prepare",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -o '../index.html'"
   },
   "keywords": [],
   "author": "",
