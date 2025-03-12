@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseLtGt = parseLtGt;
 console.log("loading app");
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM is loaded");
