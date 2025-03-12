@@ -15,6 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 export function parseLtGt(userInput: string): string {
     return userInput
-        .replace("&lt;", "<")
-        .replace("&gt;", ">");
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">");
 }
