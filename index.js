@@ -1,20 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseLtGt = parseLtGt;
 console.log("loading app");
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is loaded");
-    var inputField = document.getElementById('inputField');
-    var submitButton = document.getElementById('submitButton');
-    var outputField = document.getElementById('outputField');
-    submitButton.addEventListener('click', function () {
-        var userInput = inputField.value;
-        var output = parseLtGt(userInput);
-        outputField.textContent = "The parsed string is: ".concat(output);
+    const inputField = document.getElementById('inputField');
+    const submitButton = document.getElementById('submitButton');
+    const outputField = document.getElementById('outputField');
+    submitButton.addEventListener('click', () => {
+        const userInput = inputField.value;
+        const output = parseLtGt(userInput);
+        outputField.textContent = `The parsed string is: ${output}`;
     });
 });
-function parseLtGt(userInput) {
+export function parseLtGt(userInput) {
     return userInput
         .replace("&lt;", "<")
         .replace("&gt;", ">");
 }
+//# sourceMappingURL=index.js.map
