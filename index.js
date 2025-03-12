@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 export function parseLtGt(userInput) {
     return userInput
-        .replace("&lt;", "<")
-        .replace("&gt;", ">");
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">");
 }
 //# sourceMappingURL=index.js.map
