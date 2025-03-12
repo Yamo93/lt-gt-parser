@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-function parseLtGt(userInput: string): string {
+export function parseLtGt(userInput: string): string {
     return userInput
         .replace("&lt;", "<")
         .replace("&gt;", ">");
